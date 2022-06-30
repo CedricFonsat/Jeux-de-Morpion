@@ -1,0 +1,179 @@
+@font-face {
+    font-family: 'fredoka';
+    src: url("../fonts/FredokaOne-Regular.ttf");
+}
+@font-face {
+    font-family: 'game';
+    src: url("../fonts/my\ game.ttf");
+}
+@font-face {
+    font-family: 'SassyThrash';
+    src: url("../fonts/SassyThrash-Regular.ttf");
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+section{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+}
+h1{
+    font-family: 'game';
+    text-align: center;
+    font-size: 4em;
+    color: white;
+    
+}
+h2{
+    font-family: 'fredoka';
+    text-align: center;
+    font-size: 2em;
+    color: white;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 350px;
+}
+.plante-bottom, .plante-top{
+    position: absolute;
+}
+.plante-bottom{
+    right: -130px;
+    bottom: -120px;
+    width: 200px;
+    z-index: 1;
+}
+.plante-top{
+    top: -90px;
+    left: -120px;
+    width: 200px;
+    z-index: -2;
+}
+.plante-bottom img{
+    width: 100%;
+}
+.plante-top img{
+    width: 100%;
+}
+#edition{
+    width: 250px;
+}
+#edition img{
+    width: 100%;
+}
+span{
+    font-family: 'caltons';
+}
+main{
+    width: 100%;
+    background: url("../images/background.jpg"); 
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#game {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-left: 100px;
+    margin-right: 200px;
+    height: 300px;
+    width: 300px;
+    position: relative;
+}
+.grid-game{
+    width: 100px;
+    height: 100px;
+    border: 15px solid #e5d1b9;
+    border-image: linear-gradient(45deg,#a99671 ,#c9b997);
+    border-image-slice: 1;
+    border-radius: 20px;
+    font-size: 100px;
+    text-align: center;
+    font-family: "fredoka";
+    color: white;
+}
+#replay{
+    text-align: center;
+    width: 260px;
+    height: 40px;
+    font-family: "helvetica";
+    font-weight: bold;
+    font-size: 1em;
+    background-color: white;
+    border: none;
+}
+#replay:hover{
+    text-align: center;
+    width: 260px;
+    height: 40px;
+    font-family: "helvetica";
+    font-weight: bold;
+    font-size: 1em;
+    background: linear-gradient(90deg,#88754f ,#e5d1b9);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+#changeGame{
+    text-align: center;
+    width: 260px;
+    height: 40px;
+    font-family: "helvetica";
+    font-weight: bold;
+    font-size: 1em;
+    background: linear-gradient(90deg,#88754f ,#e5d1b9);
+    color: white;
+    margin-top: 5px;
+    border: none;
+    cursor: pointer;
+}
+#changeGame:hover{
+    background: none;
+    color: rgb(0, 0, 0);
+    background-color: white;
+}
+#puissance-four{
+    text-align: center;
+    width: 260px;
+    height: 40px;
+    font-family: "helvetica";
+    font-weight: bold;
+    font-size: 1em;
+    background: linear-gradient(90deg,#88754f ,#e5d1b9);
+    color: white;
+    margin-top: 5px;
+    border: none;
+    cursor: pointer;
+}
+#puissance-four:hover span{
+    font-family: 'SassyThrash';
+    color: rgb(207, 5, 5);
+    font-size: 19px;
+}
+#puissance-four:hover{
+    font-family: 'SassyThrash';
+    color: rgb(207, 5, 5);
+    background: none;
+    background-color: black;
+}
+#infos{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#head-game{
+    text-align: center;
+    color: white;
+}
+#head-game p{
+    font-family: "fredoka";
+    margin: 10px;
+}

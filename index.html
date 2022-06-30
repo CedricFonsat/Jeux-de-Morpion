@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/images/logo.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>MORPY</title>
+</head>
+<body>
+    <main>
+        <section>
+            <article id="head-game">
+                <h1>MORPY</h1>
+                <div id="edition">
+                    <p>EDITION</p>
+                    <img id="deadmanji" src="assets/images/jumanji.png">
+                </div>
+                <p>© MORPY by Gros Caillou Games</p>
+            </article>
+            <article id="game">
+                    <div class="plante-bottom"><img src="assets/images/bottom.png" alt=""></div>
+                    <div class="plante-top"><img src="assets/images/top.png" alt=""></div>
+                    <div id="1" class="grid-game" onclick="morpyGame(this)"></div>
+                    <div id="2" class="grid-game" onclick="morpyGame(this)"></div>
+                    <div id="3" class="grid-game" onclick="morpyGame(this)"></div>
+                    <div id="4" class="grid-game" onclick="morpyGame(this)"></div>
+                    <div id="5" class="grid-game" onclick="morpyGame(this)"></div>
+                    <div id="6" class="grid-game" onclick="morpyGame(this)"></div>
+                    <div id="7" class="grid-game" onclick="morpyGame(this)"></div>
+                    <div id="8" class="grid-game" onclick="morpyGame(this)"></div>
+                    <div id="9" class="grid-game" onclick="morpyGame(this)"></div>
+            </article>
+            <article id="infos">
+                <h2 id="round"></h2>
+                <button id="replay" onclick="restart()">REJOUER</button>
+                <button id="changeGame" onclick="changerGame()"></button>
+                <button id="puissance-four" onclick="btnIfPowerFourOrNo()">PUISSANCE <span>4</span></button>
+            </article>
+        </section>
+    </main>
+     <script src="assets/js/app.js"></script> 
+</body>
+</html>
