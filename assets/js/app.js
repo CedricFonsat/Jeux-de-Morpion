@@ -26,11 +26,14 @@ let victoryTab = [
 ];
 roundScript.innerText = "Tour du joueur X";
 btnChangeGame.innerText = "VS MORPY";
+loadPage()
+morpion()
 /***************************** Game / vs joueur vs autopilot */
 function changerGame() {
   isOn = !isOn;
   cpuVsJoueur()
 }
+/***************************** Fonction pour le jeux */
 function morpyGame(element) {
   roundPlayers(element);
 }
@@ -117,8 +120,9 @@ function checkCellIsEmpty(element) {
 }
 /***************************** Reinitialisation du jeux */
 function restart() {
-  for (let i = 0; i < game.length; i++) {
-    game[i].innerText = "";
+  let caseGame = document.querySelectorAll(".grid-game");
+  for (let k = 0; k < caseGame.length; k++) {
+    caseGame[k].innerText = "";
   }
   roundScript.innerText = "Tour du joueur X";
   playerX = "🪰";
@@ -132,15 +136,8 @@ function aleatoire(min, max) {
 }
 /***************************** Mis en place de l'autopilote aleatoire */
 function autoPilot() {
-  for (
-    let index = 0;
-    index < document.querySelectorAll(".grid-game").length;
-    index++
-  ) {
-    let random = aleatoire(
-      0,
-      document.querySelectorAll(".grid-game").length - 1
-    );
+  for ( let index = 0;index < document.querySelectorAll(".grid-game").length; index++) {
+    let random = aleatoire(0,document.querySelectorAll(".grid-game").length - 1);
     if (document.querySelectorAll(".grid-game")[random].innerText == "") {
       document.querySelectorAll(".grid-game")[random].innerText = playerO;
       break;
@@ -161,14 +158,14 @@ function fourPower() {
     });
     document.querySelector("#game").appendChild(tableFourPower);
   }
-  let game = document.querySelector("#game");
-  game.style.gridTemplateColumns = "auto auto auto auto auto auto auto";
-  game.style.width = "700px";
-  game.style.height = "600px";
   designPowerFour();
 }
 /********************************* Style pour le puissance 4 */
 function designPowerFour() {
+  let game = document.querySelector("#game");
+  game.style.gridTemplateColumns = "auto auto auto auto auto auto auto";
+  game.style.width = "700px";
+  game.style.height = "600px";
   document.querySelector("main").style.background =
     'url("assets/images/backgroundHelp.jpg")';
    for (let i = 0; i < document.querySelectorAll(".grid-game").length; i++) {
@@ -176,11 +173,14 @@ function designPowerFour() {
    }
    btnChangeGame.style.background = 'url("assets/images/blood.jpeg")';
    document.querySelector("#puissance-four").style.background =
-   'url("assets/images/backgroundHelp.jpg")';
+   'url("assets/images/blood.jpeg")';
    document.querySelector("#deadmanji").src =
    "assets/images/bloodmanji.png";
    document.querySelector("#replay").style.backgroundColor = "#5d0c09";
    document.querySelector("#replay").style.color = "white";
+   document.querySelector("#game").style.maginLeft = "0px";
+   document.querySelector("#game").style.marginRight = "0px";
+
 }
 /*********************************** Le bouton switch puissance 4 et Morpy - en cours... */
 function btnIfPowerFourOrNo(){
@@ -191,5 +191,88 @@ function btnIfPowerFourOrNo(){
     }else{
         document.querySelector("#puissance-four").innerText = 'PUISSANCE 4'
         btnPowerOrMorpy = false
+        morpion()
     }
 }
+/********************************** Morpion creer avec createElement */
+function morpion() {
+  document.querySelector("#game").innerHTML = "";
+  for (let i = 0; i < 9; i++) {
+    let morpionGrid = document.createElement("div")
+    morpionGrid.style.width = "100px";
+    morpionGrid.style.height = "100px";
+    morpionGrid.style.fontSize = "100px";
+    morpionGrid.classList.add("grid-game");
+    morpionGrid.addEventListener("click", function () {
+      morpyGame(morpionGrid);
+    });
+    document.querySelector("#game").appendChild(morpionGrid);
+  }
+  designMorpion();
+}
+/********************************* Style pour le morpion */
+function designMorpion() {
+  let game = document.querySelector("#game");
+  game.style.gridTemplateColumns = "auto auto auto";
+  game.style.width = "300px";
+  game.style.height = "300px";
+  document.querySelector("main").style.background =
+  'url("assets/images/background.jpg")';
+  document.querySelector("#deadmanji").src =
+  "assets/images/jumanji.png";
+  document.querySelector("#replay").style.backgroundColor = "white";
+  document.querySelector("#replay").style.color = "black";
+  btnChangeGame.style.background = 'linear-gradient(90deg,#88754f ,#e5d1b9)';
+  document.querySelector("#puissance-four").style.background = 'linear-gradient(90deg,#88754f ,#e5d1b9)';
+}
+/********************************* Page pour commencer le jeux */
+function loadPage() {
+  let load = document.createElement("div");
+  document.querySelector("main").appendChild(load);
+  load.id = "load";
+  load.style.width = "100%";
+  load.style.height = "100vh";
+  load.style.background = 'url("assets/images/background.jpg")';
+  load.style.position = "absolute";
+  load.style.zIndex = "998";
+  load.style.top = "0";
+  load.style.display = "flex";
+  load.style.flexDirection = "column";
+  load.style.justifyContent = "center";
+  load.style.alignItems = "center";
+  loadPageText();
+  loadPageBtn();
+}
+function loadPageText() {
+  let loadImage = document.createElement("img");
+  document.querySelector("#load").appendChild(loadImage);
+  loadImage.src = "assets/images/morpygame.png";
+  loadImage.style.width = "1000px"
+  loadImage.style.zIndex = "999";
+}
+function loadPageBtn(){
+  let loadBtn = document.createElement("button");
+  document.querySelector("#load").appendChild(loadBtn);
+  loadBtn.id = "loadBtn";
+  loadBtn.innerText = "PLAY";
+  loadBtn.style.width = "200px";
+  loadBtn.style.height = "60px";
+  loadBtn.style.background = "linear-gradient(90deg,#88754f ,#e5d1b9)";
+  loadBtn.style.border = "none";
+  loadBtn.style.borderRadius = "30px";
+  loadBtn.style.fontFamily = "game";
+  loadBtn.style.fontSize = "2em";
+  loadBtn.style.color = "white";
+  loadBtn.style.letterSpacing = "6px";
+  loadBtn.style.marginTop = "50px";
+  loadBtn.style.cursor = "pointer";
+  document.querySelector("#loadBtn").addEventListener("click", function () {
+    fadeLoad();
+    load.style.top = "-100vh";
+  });
+}
+function fadeLoad() {
+  load.classList.add("animate");
+}
+
+

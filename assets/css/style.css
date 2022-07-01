@@ -177,3 +177,19 @@ main{
     font-family: "fredoka";
     margin: 10px;
 }
+.animate{
+    animation: morpyload 2s linear;
+}
+@keyframes morpyload {
+    0%{
+        top: 0;
+    }
+    50%{
+        top: -50vh;
+        opacity: .7;
+    }
+    100%{
+        top: -100vh;
+        opacity: 0;
+    }
+}
